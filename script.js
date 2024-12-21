@@ -43,6 +43,32 @@ document.addEventListener("DOMContentLoaded", function () {
                 navigateSlide("prev");
             }
         });
+
+        // Add touch swipe handling
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    navigateSlide("next");
+                } else {
+                    navigateSlide("prev");
+                }
+            }
+        }
     }
 
     // Initialize on first load
