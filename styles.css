@@ -45,6 +45,17 @@ body {
     animation: slideIn 1s ease-out forwards;
 }
 
+.slide a {
+    color: #4a90e2;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.slide a:hover {
+    color: #357abd;
+    text-decoration: underline;
+}
+
 h1 {
     font-size: 4rem;
     margin-bottom: 1.5rem;
@@ -161,4 +172,25 @@ html.is-animating .transition-fade {
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.video-grid iframe {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.video-grid iframe:hover {
+    transform: scale(1.05);
 }
