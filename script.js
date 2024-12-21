@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const swup = new Swup({
-        containers: ["#swup"]
-    });
+    const swup = new Swup();
 
     function init() {
         const slides = document.querySelectorAll(".slide");
@@ -74,6 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Initialize on first load
     init();
 
-    // Initialize on every Swup page view
-    swup.on("contentReplaced", init);
+    // Initialize on every Swup page view (new syntax for Swup v4)
+    swup.hooks.on('content:replace', init);
 });
